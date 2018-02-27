@@ -22,7 +22,7 @@ export class ConsultaComponent implements OnInit {
 
   ngOnInit() {
     this.contatoService.consultarTodos().subscribe(contatos => {
-      this.http.get('http://localhost:3000/contatos').subscribe(dados => {
+      this.http.get('contatos').subscribe(dados => {
         this.contatos = dados;
       });
     });
@@ -34,14 +34,14 @@ export class ConsultaComponent implements OnInit {
   }
 
   editarContato(id){
-    this.http.get('http://localhost:3000/'+id)
+    this.http.get(''+id)
     .subscribe(dados => {
       this.contato = dados;
     });
   }
     
   atualizarCadastro(id,contato){
-      this.http.put('http://localhost:3000/contatos/'+id, this.contato)
+      this.http.put('contatos/'+id, this.contato)
         .subscribe(res => {
           let id = res['_id'];
           this.router.navigate(['/editarPessoa']);

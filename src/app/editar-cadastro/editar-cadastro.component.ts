@@ -27,14 +27,14 @@ export class EditarCadastroComponent implements OnInit {
   }
 
   getContato(id){
-    this.http.get('http://localhost:3000/contatos/'+id)
+    this.http.get('contatos/'+id)
       .subscribe(dados => {
         this.contato = dados;
       });
   }
 
   atualizarContato(id,contato){
-    this.http.put('http://localhost:3000/contatos/'+id, this.contato)
+    this.http.put('contatos/'+id, this.contato)
       .subscribe(res => {
         let id = res['id'];
         this.router.navigate(['/consulta/']);
@@ -44,7 +44,7 @@ export class EditarCadastroComponent implements OnInit {
   }
 
   deletarContato(id){
-    this.http.delete('http://localhost:3000/contatos/'+id)
+    this.http.delete('contatos/'+id)
       .subscribe(res => {
         this.router.navigate(['/consulta']);
       }, (err) => {
