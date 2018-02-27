@@ -1,0 +1,46 @@
+<h1 class="page-title">Cadastrar Contato</h1>
+
+<form novalidate #f="ngForm" (ngSubmit)="register(f)">
+  <!-- Nome do Contato-->
+  <div class="form-group">
+      <label for="">Nome</label>
+      <input type="text" class="form-control" placeholder="Nome" name="nome"
+      [(ngModel)]="nome"
+      #contatoNome
+      required/>
+
+  </div>
+
+  <!-- Data de Nascimento-->
+  <div class="form-group">
+      <label for="">Data de Nascimento</label>
+      <input type="text" class="form-control"  [mask]="dataEstilo" placeholder="11/11/1111" name="dataNascimento" [(ngModel)]="dataNascimento"
+      #contatoDataNascimento
+      required/>
+
+  </div>
+
+  <!-- Email -->
+  <div class="form-group">
+      <label for="">Email</label>
+      <input type="text" class="form-control" placeholder="exemplo@exemplo.com" name="email" [(ngModel)]="email"
+      #contatoEmail="ngModel"
+      required/>
+  </div>
+
+  
+  <!-- Numero do Contato-->
+  <div class="form-group">
+      <label for="">Numero (telefone)</label>
+      <input type="text" class="form-control"  [mask]="telefoneEstilo" placeholder="(00) 0000-0000"
+      name="telefone" [(ngModel)]="telefone"
+      #contatoTelefone="ngModel"
+      required/>
+  </div>
+
+
+  <div class="form-group">
+    <button class="btn btn-default" [disabled]="!f.valid">Register</button>
+  </div>
+  
+</form>
