@@ -12,12 +12,12 @@ export class PageService {
   public pagesBS = new BehaviorSubject<string>(null);
 
   getPages(){
-    return this.http.get('pages')
+    return this.http.get('http://localhost:3000/pages')
       .map(res => res.json());
   }
 
   getPage(slug){
-    return this.http.get('pages/'+slug)
+    return this.http.get('http://localhost:3000/pages/'+slug)
       .map(res => res.json());
   }
   

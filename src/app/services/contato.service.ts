@@ -19,23 +19,23 @@ export class ContatoService {
   register(user){
  //     return this.http.post('contatos/',user)
  //     .map(res => res.json());
-      return this.http.post('contatos/',user);
+      return this.http.post('http://localhost:3000/contatos/',user);
   }
 
   consultarTodos(){
 //    return this.http.get('contatos/')
 //   .map(res => {res.json()});
-    return this.http.get<Contato>('contatos');
+    return this.http.get<Contato>('http://localhost:3000/contatos');
   }
 
   consulta(user){
 //    return this.http.get('contatos/'+user)
 //   .map(res => res.json());
-    return this.http.get('contatos/'+user);
+    return this.http.get('http://localhost:3000/contatos/'+user);
   }
 
   substituir(id, user){
-    return this.http.put('contatos/'+id,this.contato).map(res => 
+    return this.http.put('http://localhost:3000/contatos/'+id,this.contato).map(res => 
     {
       let id = res['_id'];
       this.router.navigate(['/contatos/'])
@@ -43,7 +43,7 @@ export class ContatoService {
   }
 
   deletar(id){
-    return this.http.delete('contatos/'+id).map(res => {
+    return this.http.delete('http://localhost:3000/contatos/'+id).map(res => {
       this.router.navigate(['/contatos']);
       },
       (err) =>{
